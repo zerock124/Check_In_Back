@@ -1,0 +1,252 @@
+﻿
+@{
+    ViewBag.Title = "彙總紀錄";
+}
+
+
+<div class="content-wrapper">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">
+                        <i class="nav-icon fas fa-clipboard-list"></i>
+                        @ViewBag.Title
+                    </h1>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <div id="v_app"></div>
+
+</div>
+
+<template id="TotalRecordManagement">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="card card-default color-palette-box">
+                <div class="card-blue">
+                    <div class="form-group row m-3">
+                        <div class="col-auto">
+                            <div class="col-form-label">查詢日期：</div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="input-group">
+                                <b-form-select v-model="Year" :options="Years" style="width:150px"></b-form-select>
+                                <div class="input-group-append">
+                                    <div class="btn btn-navbar">
+                                        年
+                                    </div>
+                                </div>
+                                <b-form-select v-model="Month" :options="Months" style="width:150px"></b-form-select>
+                                <div class="input-group-append">
+                                    <div class="btn btn-navbar">
+                                        月
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row m-3">
+                        <div class="col-auto">
+                            <div class="col-form-label">關鍵字：</div>
+                        </div>
+                        <div class="col-auto navbar-expand navbar-white navbar-light">
+                            <div class="input-group">
+                                <div class="pr-2">
+                                    <b-form-select v-model="Selectd" :options="Options"></b-form-select>
+                                </div>
+                                <input class="form-control form-control-navbar" v-model="Query" placeholder="Search">
+                                <div class="input-group-append">
+                                    <button class="btn btn-navbar" v-on:click.prevert="SetCheckRecord">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="card m-0">
+                        <div class="card-body table-responsive">
+
+                            <div class="mb-1">
+                                <div class="row">
+                                    <div class="col-auto col-md-6">
+                                        統計日期: {{StartDateTime}} ~ {{EndDateTime}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <table class="table table-bordered border-top table-striped">
+                                <thead class="">
+                                    <tr>
+                                        <th class="text-nowrap">#</th>
+                                        <th class="text-nowrap">姓名</th>
+                                        <th class="text-nowrap">出勤天數</th>
+                                        <th class="text-nowrap">總工時</th>
+                                        <th class="text-nowrap">平均工時 / 日</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="(Item, index) in Check_AllList">
+                                        <td>
+                                            {{index + 1}}
+                                        </td>
+                                        <td>
+                                            {{Item.ur_ac}}
+                                        </td>
+                                        <td>
+                                            {{Item.ca_on}}
+                                        </td>
+                                        <td>
+                                            {{Item.ca_hr}}
+                                        </td>
+                                        <td>
+                                            {{Item.ca_hr_avg}}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+        </div>
+
+        @*<b-modal class="modal-content justify-content-center animated zoomIn"
+                 id="TotalRecordModal"
+                 size="lg"
+                 hide-header
+                 hide-footer>
+            <div class="modal-body" style="width:350px">
+
+                <div v-if="SaveForm == 'Form' && Check_All_Item">
+
+                    <div class="row align-items-center justify-content-center my-4">
+                        <div class="col-auto h5">
+                            <i class="fas fa-user-edit fa-2x"></i>
+                            <span>編輯彙總紀錄</span>
+                        </div>
+                    </div>
+
+                    <div class="border border-success p-3">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                                <i class="fas fa-user-circle fa-2x"></i>
+                            </div>
+                            <div class="col">
+                                姓名:
+                                {{Check_All_Item.ur_ac}}
+                            </div>
+                        </div>
+
+                        <div class="row align-items-center my-2">
+                            <div class="col-auto">
+                                <i class="fas fa-calendar fa-2x"></i>
+                            </div>
+                            <div class="col">
+                                日期:
+                                {{Check_All_Item.ca_ya}} 年
+                                {{Check_All_Item.ca_mo}} 月
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 col-md-6 text-center">
+                                <div>
+                                    <label for="ca_ev">事假次數</label>
+                                    <b-form-input id="ca_ev" v-model="Check_All_Item.ca_ev" class="text-center"></b-form-input>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 text-center">
+                                <div>
+                                    <label for="ca_sk">病假次數</label>
+                                    <b-form-input id="ca_sk" v-model="Check_All_Item.ca_sk" class="text-center"></b-form-input>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col text-right">
+                            <b-button pill variant="outline-secondary" v-on:click.prevent="CloseModal">取消</b-button>
+                            <b-button pill variant="primary" v-on:click.prevent="SubmitCheck_All">變更</b-button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div v-if="SaveForm == 'Loading'">
+                    <div class="row">
+                        <div class="col text-center">
+                            <div class="circle-loader m-4">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col text-center h4">
+                            新增中...請稍後
+                        </div>
+                    </div>
+                </div>
+
+                <div v-if="SaveForm == 'Success'">
+                    <div class="row">
+                        <div class="col text-center">
+                            <div class="circle-loader m-4 load-complete">
+                                <div class="checkmark draw"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col text-center h4">
+                            編輯完成
+                        </div>
+                    </div>
+                </div>
+
+                <div v-if="SaveForm == 'Error'">
+                    <div class="row">
+                        <div class="col text-center">
+                            <div class="m-4 load-complete">
+                                <i class="fas fa-times fa-5x text-red"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col text-center h4">
+                            編輯失敗
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col text-center">
+                        <button type="button" v-if="SaveForm == 'Success'" class="btn btn-success" v-on:click.prevent="CloseModal">確認</button>
+                    </div>
+                </div>
+            </div>
+        </b-modal>*@
+
+    </div>
+</template>
+
+@section Scripts {
+    <script>
+
+    </script>
+    <script>
+        requirejs.config({
+            baseUrl: "@Url.Content("~/Scripts/build/view/TotalRecord")"
+        });
+        require(["index"]);
+    </script>
+
+}

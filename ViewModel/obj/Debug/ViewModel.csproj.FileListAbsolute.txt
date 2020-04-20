@@ -1,0 +1,5 @@
+C:\xinyu\Project\Check_In\ViewModel\bin\Debug\ViewModel.dll.config
+C:\xinyu\Project\Check_In\ViewModel\bin\Debug\ViewModel.dll
+C:\xinyu\Project\Check_In\ViewModel\bin\Debug\ViewModel.pdb
+C:\xinyu\Project\Check_In\ViewModel\obj\Debug\ViewModel.dll
+C:\xinyu\Project\Check_In\ViewModel\obj\Debug\ViewModel.pdb

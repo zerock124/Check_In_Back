@@ -1,0 +1,21 @@
+﻿nav.navbar {
+
+    height: 48px;
+
+    .navbar-brand {
+        img.webLogo {
+            height: 35px;
+            margin-top: -7px;
+            margin-bottom: -4px;
+        }
+    }
+
+    .navbar-nav {
+        .dropdown-menu {
+            .dropdown-item {
+                padding-top: .8rem;
+                padding-bottom: .8rem;
+            }
+        }
+    }
+}

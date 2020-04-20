@@ -1,0 +1,12 @@
+C:\xinyu\Project\Check_In\ViewModel\bin\Release\ViewModels.dll.config
+C:\xinyu\Project\Check_In\ViewModel\bin\Release\ViewModels.dll
+C:\xinyu\Project\Check_In\ViewModel\bin\Release\ViewModels.pdb
+C:\xinyu\Project\Check_In\ViewModel\obj\Release\ViewModels.csprojAssemblyReference.cache
+C:\xinyu\Project\Check_In\ViewModel\obj\Release\ViewModels.dll
+C:\xinyu\Project\Check_In\ViewModel\obj\Release\ViewModels.pdb
+C:\xinyu\內部專案\Project後台\Check_In\ViewModel\bin\Release\ViewModels.dll.config
+C:\xinyu\內部專案\Project後台\Check_In\ViewModel\bin\Release\ViewModels.dll
+C:\xinyu\內部專案\Project後台\Check_In\ViewModel\bin\Release\ViewModels.pdb
+C:\xinyu\內部專案\Project後台\Check_In\ViewModel\obj\Release\ViewModels.csprojAssemblyReference.cache
+C:\xinyu\內部專案\Project後台\Check_In\ViewModel\obj\Release\ViewModels.dll
+C:\xinyu\內部專案\Project後台\Check_In\ViewModel\obj\Release\ViewModels.pdb

@@ -1,0 +1,20 @@
+﻿.printPage {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    overflow: hidden;
+    font-size: .867rem;
+
+    .page-break {
+        margin: 20px 0;
+        height: 297mm;
+        padding: 15mm;
+        border: 1px;
+        border-color: #D3D3D3;
+        border-style: solid;
+        background: white;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        /*CSS 控制列印斷行*/
+        page-break-before: always;
+    }
+}

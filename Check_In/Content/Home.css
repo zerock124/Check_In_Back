@@ -1,0 +1,21 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap');
+
+* {
+    font-family: 'Microsoft JhengHei';
+}
+
+
+.table thead tr th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table tbody tr td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.TotalText {
+    vertical-align: middle;
+    font-size: 1.25rem;
+}

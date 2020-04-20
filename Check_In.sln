@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Check_In", "Check_In\Check_In.csproj", "{935EA56A-3431-4659-81CE-645268F9D487}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModels", "ViewModel\ViewModels.csproj", "{477DCEB1-417A-4996-808A-23F8EA422CC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Check_InDB", "Check_InDB\Check_InDB.csproj", "{34FA6037-BF11-4473-81D2-643E533DA23F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{935EA56A-3431-4659-81CE-645268F9D487}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{935EA56A-3431-4659-81CE-645268F9D487}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{935EA56A-3431-4659-81CE-645268F9D487}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{935EA56A-3431-4659-81CE-645268F9D487}.Release|Any CPU.Build.0 = Release|Any CPU
+		{477DCEB1-417A-4996-808A-23F8EA422CC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{477DCEB1-417A-4996-808A-23F8EA422CC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{477DCEB1-417A-4996-808A-23F8EA422CC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{477DCEB1-417A-4996-808A-23F8EA422CC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34FA6037-BF11-4473-81D2-643E533DA23F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34FA6037-BF11-4473-81D2-643E533DA23F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34FA6037-BF11-4473-81D2-643E533DA23F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34FA6037-BF11-4473-81D2-643E533DA23F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {794F578A-12E6-487E-9E62-D514ADD6019B}
+	EndGlobalSection
+EndGlobal

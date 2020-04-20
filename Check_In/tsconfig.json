@@ -1,0 +1,27 @@
+﻿{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "traceResolution": false,
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "declaration": false,
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "downlevelIteration": true,
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "module": "amd",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "rootDir": "Scripts",
+    "outDir": "./Scripts/build/"
+  }
+}

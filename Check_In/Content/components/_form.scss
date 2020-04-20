@@ -1,0 +1,40 @@
+﻿
+
+.custom-select {
+    background-image: none;
+}
+
+
+.input-group-flush {
+
+    & > .form-control {
+        padding-top: 0;
+        padding-bottom: 0;
+        border-color: transparent !important;
+        background-color: transparent !important;
+
+        &:focus {
+            box-shadow: none;
+            outline: none;
+        }
+    }
+
+    & > .input-group-append {
+
+        .btn {
+            box-shadow: none;
+        }
+    }
+
+    & > .input-group-append > .input-group-text,
+    & > .input-group-prepend > .input-group-text {
+        padding: 0;
+        border-width: 0;
+        background-color: transparent;
+    }
+}
+
+.custom-file-label {
+    overflow: hidden;
+    word-break: break-all;
+}

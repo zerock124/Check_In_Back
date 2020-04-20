@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Check_testModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RealName" Type="nvarchar(max)" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="RegisterDate" Type="datetime" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="CreateUser" Type="nvarchar(max)" />
+    <Property Name="UpdateTime" Type="datetime" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="check_all">
+    <Key>
+      <PropertyRef Name="ca_sn" />
+    </Key>
+    <Property Name="ca_sn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ur_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ca_ya" Type="int" Nullable="false" />
+    <Property Name="ca_mo" Type="int" Nullable="false" />
+    <Property Name="ca_dy" Type="int" Nullable="false" />
+    <Property Name="ca_on" Type="int" Nullable="false" />
+    <Property Name="ca_hr" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="check_in">
+    <Key>
+      <PropertyRef Name="ci_sn" />
+    </Key>
+    <Property Name="ci_sn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ur_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ci_da" Type="date" Nullable="false" />
+    <Property Name="ci_ut" Type="time" Precision="7" Nullable="false" />
+    <Property Name="ci_dt" Type="time" Precision="7" Nullable="false" />
+    <Property Name="ca_mo" Type="int" Nullable="false" />
+    <Property Name="ci_hr" Type="float" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="ci_ct" Type="datetime" Nullable="false" />
+    <Property Name="ci_ud" Type="datetime" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="ur_sn" />
+    </Key>
+    <Property Name="ur_sn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ur_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ur_ac" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ur_pw" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ur_ct" Type="datetime" Nullable="false" />
+    <Property Name="ur_is" Type="bit" Nullable="false" />
+    <Property Name="ur_im" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="Check_testModelStoreContainer">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="check_all" EntityType="Self.check_all" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="check_in" EntityType="Self.check_in" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

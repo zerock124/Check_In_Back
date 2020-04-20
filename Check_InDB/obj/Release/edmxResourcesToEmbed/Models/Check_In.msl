@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Check_testModelStoreContainer" CdmEntityContainer="Check_testEntities">
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="Check_testModel.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="Check_testModel.AspNetUserClaims">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="Check_testModel.AspNetUserLogins">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserRoles">
+      <EntityTypeMapping TypeName="Check_testModel.AspNetUserRoles">
+        <MappingFragment StoreEntitySet="AspNetUserRoles">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="Check_testModel.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="RealName" ColumnName="RealName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="Check_testModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="ur_im" ColumnName="ur_im" />
+          <ScalarProperty Name="ur_is" ColumnName="ur_is" />
+          <ScalarProperty Name="ur_ct" ColumnName="ur_ct" />
+          <ScalarProperty Name="ur_pw" ColumnName="ur_pw" />
+          <ScalarProperty Name="ur_ac" ColumnName="ur_ac" />
+          <ScalarProperty Name="ur_id" ColumnName="ur_id" />
+          <ScalarProperty Name="ur_sn" ColumnName="ur_sn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="check_all">
+      <EntityTypeMapping TypeName="Check_testModel.check_all">
+        <MappingFragment StoreEntitySet="check_all">
+          <ScalarProperty Name="ca_hr" ColumnName="ca_hr" />
+          <ScalarProperty Name="ca_on" ColumnName="ca_on" />
+          <ScalarProperty Name="ca_dy" ColumnName="ca_dy" />
+          <ScalarProperty Name="ca_mo" ColumnName="ca_mo" />
+          <ScalarProperty Name="ca_ya" ColumnName="ca_ya" />
+          <ScalarProperty Name="ur_id" ColumnName="ur_id" />
+          <ScalarProperty Name="ca_sn" ColumnName="ca_sn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="check_in">
+      <EntityTypeMapping TypeName="Check_testModel.check_in">
+        <MappingFragment StoreEntitySet="check_in">
+          <ScalarProperty Name="ci_ud" ColumnName="ci_ud" />
+          <ScalarProperty Name="ci_ct" ColumnName="ci_ct" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="ci_hr" ColumnName="ci_hr" />
+          <ScalarProperty Name="ca_mo" ColumnName="ca_mo" />
+          <ScalarProperty Name="ci_dt" ColumnName="ci_dt" />
+          <ScalarProperty Name="ci_ut" ColumnName="ci_ut" />
+          <ScalarProperty Name="ci_da" ColumnName="ci_da" />
+          <ScalarProperty Name="ur_id" ColumnName="ur_id" />
+          <ScalarProperty Name="ci_sn" ColumnName="ci_sn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

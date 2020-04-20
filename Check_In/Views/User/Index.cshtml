@@ -1,0 +1,167 @@
+﻿@{
+    ViewBag.Title = "帳號管理";
+}
+<style>
+    .circle {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 1px solid rgba(3,3,3,0.2);
+    }
+</style>
+<div class="content-wrapper">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">
+                        <i class="nav-icon fas fa-user"></i>
+                        @ViewBag.Title
+                    </h1>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <div id="v_app"></div>
+</div>
+
+<template id="UserManagement">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="card card-default color-palette-box">
+                <div class="card-blue">
+                    <div class="row m-3">
+                        <div class="col">
+                            <div class="info-box-content">
+                                <div class="TotalText">
+                                    總筆數：
+                                    <span class="badge badge-primary">{{TotalCounts}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col text-right">
+                            <a href="@Url.Action("Create","User")" class="btn btn-primary">新增</a>
+                        </div>
+                    </div>
+
+                    <div class="form-group row m-3">
+                        <div class="col-12 col-md-auto">
+                            <div class="col-form-label">建立日期：</div>
+                        </div>
+                        <div class="col-12 col-md-auto">
+                            <div class="input-group">
+                                <b-form-datepicker v-model="StartDateTime"
+                                                   class="form-control float-right"
+                                                   :min="MinDate"
+                                                   :max="EndDateTime"
+                                                   :date-format-options="{'year': 'numeric', 'month': 'long', 'day': 'numeric'}">
+                                </b-form-datepicker>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-auto text-center align-self-center">
+                            <h4>
+                                ~
+                            </h4>
+                        </div>
+                        <div class="col-12 col-md-auto">
+                            <div class="input-group">
+                                <b-form-datepicker v-model="EndDateTime"
+                                                   class="form-control float-right"
+                                                   :min="StartDateTime"
+                                                   :max="MaxDate"
+                                                   :date-format-options="{'year': 'numeric', 'month': 'long', 'day': 'numeric'}">
+                                </b-form-datepicker>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row m-3">
+                        <div class="col-auto">
+                            <div class="col-form-label">關鍵字：</div>
+                        </div>
+                        <div class="col-auto navbar-expand navbar-white navbar-light">
+                            <div class="input-group">
+                                <div class="pr-2">
+                                    <b-form-select v-model="Selectd" :options="Options"></b-form-select>
+                                </div>
+                                <input class="form-control form-control-navbar" v-model="Query" placeholder="Search">
+                                <div class="input-group-append">
+                                    <button class="btn btn-navbar" v-on:click.prevert="SetSearchDate">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body table-responsive ">
+                            <table class="table table-bordered border-top table-striped">
+                                <thead class="table-bordered">
+                                    <tr>
+                                        <th class="text-nowrap">#</th>
+                                        <th class="text-nowrap">頭像</th>
+                                        <th class="text-nowrap">帳號</th>
+                                        <th class="text-nowrap">建立日期</th>
+                                        <th class="text-nowrap">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="(Item, index) in ListItem">
+                                        <td>
+                                            {{index + 1}}
+                                        </td>
+                                        <td>
+                                            <a :href=" '@Url.Action("Index","CheckRecord")?ur_id=' + Item.ur_id">
+                                                <b-img :src="Item.ur_imurl" :alt="Item.ur_im" class="circle" />
+                                            </a>
+                                        </td>
+                                        <td>
+                                            {{Item.ur_ac}}
+                                        </td>
+                                        <td>
+                                            {{Item.ur_ct | dateToDateTimeString}}
+                                        </td>
+                                        <td>
+                                            <button class="btn-sm btn-primary" v-on:click="GetEditUser(Item.ur_id)">
+                                                <i class="fas fa-pen"></i>
+                                            </button>
+                                            <button class="btn-sm btn-danger" v-on:click.prevent="DeleteUserItem(Item.ur_id, Item.ur_im)">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer clearfix">
+                            <b-pagination class="pagination pagination-sm m-0 float-right"
+                                          v-model="CurrentPage"
+                                          :total-rows="TotalCounts"
+                                          :per-page="PerPage"></b-pagination>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>
+
+@section Scripts {
+    <script>
+        requirejs.config({
+            baseUrl: "@Url.Content("~/Scripts/build/view/User")"
+        });
+        require(["index"]);
+    </script>
+
+}

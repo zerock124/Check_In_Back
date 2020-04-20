@@ -1,0 +1,75 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>光點數位科技打卡系統 | Log in</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="https://www.sp88.com.tw/assets/images/logo-135x140-135x140.png" />
+    <link rel="stylesheet" href="~/Content/plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link href="~/Content/Home.css" rel="stylesheet" />
+    <!-- Google Font: Source Sans Pro -->
+    <link href="~/Content/dist/css/adminlte.min.css" rel="stylesheet" />
+    <link href="~/Content/plugins/icheck-bootstrap/icheck-bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/SignIn.min.css" rel="stylesheet" />
+</head>
+<body class="hold-transition login-page">
+    <div class="text-primary">
+        <div class="login-logo">
+            光點數位科技打卡系統
+        </div>
+        <!-- /.login-logo -->
+        <div class="card">
+            <div class="card-body login-card-body">
+                <form action="@Url.Action("Login","Account")" method="post">
+                    @Html.AntiForgeryToken()
+                    <div class="input-group mb-3">
+                        <input type="text" name="UserName" class="form-control" placeholder="使用者帳號" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user-alt"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" name="Password" class="form-control" placeholder="密碼" required>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-key"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row align-items-center justify-content-center">
+                        @*<div class="col">
+                            <div class="icheck-primary">
+                                <input type="checkbox" name="RememberMe" id="RememberMe">
+                                <label for="RememberMe">
+                                    記住我
+                                </label>
+                            </div>
+                        </div>*@
+                        <div class="col-4">
+                            <input type="submit" name="Submit" class="btn btn-primary btn-block" value="登入" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- /.login-card-body -->
+        </div>
+    </div>
+    <!-- /.login-box -->
+    <!-- jQuery -->
+    <!-- Bootstrap 4 -->
+    <!-- AdminLTE App -->
+    @*@Scripts.Render("~/Script/MainScripts")*@
+    <script>
+    </script>
+</body>
+</html>
+

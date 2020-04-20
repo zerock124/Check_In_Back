@@ -1,0 +1,69 @@
+﻿@{
+    string UserName = User.Identity.Name;
+    var WebName = "光點數位打卡系統";
+}
+
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="https://lab.sp88.com.tw/check_in/check_in_release_font/" class="brand-link">
+        <img src="https://www.sp88.com.tw/assets/images/logo-135x140-135x140.png" alt="AdminLTE Logo" class="brand-image"
+             style="opacity: .8">
+        <span class="brand-text font-weight-light">@WebName</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="~/Content/dist/img/user.png" class="img-circle bg-white" alt="User Image" style="opacity: .8">
+            </div>
+            <div class="info">
+                <a href="@Url.Action("Index","User")" class="d-block">@UserName</a>
+            </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+    with font-awesome or any other icon font library -->
+                @*<li class="nav-item">
+                    <a href="@Url.Action("Index","Home")" class="nav-link">
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>
+                            Home
+                        </p>
+                    </a>
+                </li>*@
+                <li class="nav-item">
+                    <a href="@Url.Action("Index","User")" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            帳號管理
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="@Url.Action("Index","CheckRecord")" class="nav-link">
+                        <i class="nav-icon fas fa-database"></i>
+                        <p>
+                            打卡紀錄
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="@Url.Action("Index","TotalRecord")" class="nav-link">
+                        <i class="nav-icon fas fa-clipboard-list"></i>
+                        <p>
+                            彙總紀錄
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>

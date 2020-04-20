@@ -1,0 +1,112 @@
+﻿@{
+    string BasePath = Url.Content("~");
+    var meta_title = "光點數位科技打卡系統";
+}
+
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="https://www.sp88.com.tw/assets/images/logo-135x140-135x140.png" />
+    <title>@meta_title - @ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/plugins/fontawesome-free/css/all.min.css">
+    <link href="~/Content/Modal.css" rel="stylesheet" />
+    @Styles.Render("~/Content/Home.css")
+    @Styles.Render("~/Style/MainStyles")
+    @RenderSection("Styles", required: false)
+    @*正常全域模式下設定*@
+    <script>
+        window.BasePath = '@BasePath';
+    </script>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+
+    @Html.AntiForgeryToken();
+
+    <div class="wrapper">
+        @Html.Partial("_Header")
+
+        @Html.Partial("_Sidebar")
+
+        @RenderBody()
+
+        @Html.Partial("_Footer")
+
+        @Html.Partial("_Aside")
+        <!-- Add the sidebar's background. This div must be placed
+        immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+    </div>
+
+    @Scripts.Render("~/Script/MainScripts")
+    @Scripts.Render("~/Script/LayoutComponents")
+    <script src="~/Content/dist/js/demo.js"></script>
+    @Scripts.Render("~/Scripts/Requirejs")
+
+    @RenderSection("Scripts", required: false)
+    <script>
+        $.ajaxPrefilter(function (options) {
+            if (!options.beforeSend && options.type === 'Post') {
+                options.beforeSend = function (xhr) {
+                    xhr.setRequestHeader("__RequestVerificationToken", $('[name=__RequestVerificationToken]').val());
+                }
+            }
+        });
+    </script>
+    @*
+        require全域設定(可在內頁重複設定)
+
+        目前使用自訂套件名單有
+        1. vuex-module-decorators - npm內容缺乏 umd & amd 編譯
+        2. v-calendar - npm內容包含 umd 編譯，但在 amd 的內容缺少套件引入內容 (["vue"])
+    *@
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+        <script>
+        requirejs.config({
+            urlArgs(url) {
+                return (url.indexOf('?') === -1 ? '?' : '&') + 'v=' + new Date().getTime();
+            },
+            waitSeconds: 100,
+            paths: {
+                "vue": "@Url.Content("~/node_modules/vue/dist/vue")",
+                "vue-class-component": "@Url.Content("~/node_modules/vue-class-component/dist/vue-class-component")",
+                "vue-property-decorator": "@Url.Content("~/node_modules/vue-property-decorator/lib/vue-property-decorator.umd")",
+                "bootstrap-vue": "@Url.Content("~/node_modules/bootstrap-vue/dist/bootstrap-vue")",
+            },
+            packages: [
+                {
+                    name: 'moment',
+                    location: '@Url.Content("~/node_modules/moment")',
+                    main: 'moment'
+                }
+            ]
+        });
+        </script>
+    }
+    else
+    {
+        <script>
+        requirejs.config({
+            @*urlArgs: 'v=@ScriptVersion',*@
+            waitSeconds: 100,
+            paths: {
+                "vue": "@Url.Content("~/node_modules/vue/dist/vue.min")",
+                "vue-class-component": "@Url.Content("~/node_modules/vue-class-component/dist/vue-class-component")",
+                "vue-property-decorator": "@Url.Content("~/node_modules/vue-property-decorator/lib/vue-property-decorator.umd")",
+                "bootstrap-vue": "@Url.Content("~/node_modules/bootstrap-vue/dist/bootstrap-vue.min")",
+            },
+            packages: [
+                {
+                    name: 'moment',
+                    location: '@Url.Content("~/node_modules/moment")',
+                    main: 'min/moment.min'
+                }
+            ]
+        });
+        </script>
+    }
+</body>
+</html>

@@ -1,0 +1,57 @@
+﻿.important-reminder {
+    max-width: 100%;
+    height: 300px;
+    overflow-y: auto;
+}
+.shift-station-state {
+    background-color: $light;
+}
+.instant-flight-information {
+    background-color: rgb(255, 251, 200);
+}
+
+.digital-board {
+    margin: 0 auto;
+    padding: 15px;
+    max-width: 300px;
+    background-color: $light;
+    color: $dark;
+    border-width: 1px;
+    border-color: lighten($dark, 60%);
+    border-style: solid;
+    transition: all .3s ease;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+
+    &:hover {
+        border-color: lighten($primary, 15%);
+        box-shadow: 0 0 5px lighten($primary, 30%);
+        color: $primary;
+    }
+
+    &-title {
+        text-align: center;
+        font-size: 12px;
+    }
+
+    &-main {
+        text-align: center;
+
+        .digital,
+        .unit {
+            display: inline;
+            line-height: 1;
+        }
+
+        .digital {
+            font-size: 50px;
+        }
+
+        .unit {
+            font-size: 10px;
+        }
+    }
+}

@@ -1,0 +1,89 @@
+﻿
+
+.class-scheduling {
+    &-index {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        width: 30px;
+        height: 30px;
+        padding: 5px;
+        background-color: $gray-200;
+        text-align: center;
+        overflow: hidden;
+        white-space: nowrap;
+        font-size: 75%;
+        line-height: 20px;
+        border-radius: 50%;
+        border-style: solid;
+        border-color: $border-color;
+        border-width: $border-width;
+    }
+
+    &-list {
+    }
+
+    &-item {
+        position: relative;
+        padding: 10px 15px 10px 25px;
+        border-style: solid;
+        border-color: $border-color;
+        border-width: $border-width;
+        border-bottom-width: 0;
+
+        .class-addr {
+            display: flex;
+            display: -webkit-flex;
+            justify-content: space-between;
+            -webkit-justify-content: space-between;
+            align-items: center;
+            -webkit-align-items: center;
+            margin-bottom: 10px;
+
+            @media (max-width: map-get($grid-breakpoints, "md")) {
+                flex-direction: column;
+                -ms-flex-direction: column;
+                -webkit-flex-direction: column;
+                align-items: flex-start;
+                -webkit-align-items: flex-start;
+            }
+
+            &-start,
+            &-end {
+                max-width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                font-size: 120%;
+            }
+
+            &-start {
+            }
+
+            &-icon {
+                padding: 0 5px;
+
+                @media (max-width: map-get($grid-breakpoints, "md")) {
+                    display: none;
+                }
+            }
+
+            &-end {
+            }
+        }
+    }
+
+    &-item:last-child {
+        border-bottom-width: $border-width;
+    }
+}
+
+
+.scheduling-trips-list {
+    height: 350px;
+    overflow-y: auto;
+}

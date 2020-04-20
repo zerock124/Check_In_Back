@@ -1,0 +1,23 @@
+﻿
+.text-delete {
+    text-decoration: line-through;
+}
+
+.text-close {
+    line-height: 1.1em;
+}
+
+.text-ellipsis-onerow {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break:keep-all;
+    text-wrap: none;
+}
+
+a[href].unhoverdefault {
+    color: inherit;
+
+    &:hover {
+        color: $link-hover-color;
+    }
+}

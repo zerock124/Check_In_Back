@@ -1,0 +1,44 @@
+﻿$week-days: 7;
+
+.calendar-grid {
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    border-color: $border-color;
+    border-width: $border-width;
+    border-style: solid;
+    border-radius: $border-radius;
+
+    &-header,
+    &-item {
+        flex: 0 0 100% / $week-days;
+    }
+
+    &-header {
+        padding: 10px 15px;
+        border-bottom: $border-width solid $border-color;
+    }
+
+    &-item {
+        padding: 15px;
+        border-color: transparent;
+        border-width: $border-width;
+        border-style: solid;
+
+        .calendar-day {
+            font-size: 1.25rem;
+        }
+    }
+
+    @media (max-width: map-get($grid-breakpoints, "xl")) {
+
+        &-header,
+        &-item {
+            padding: 5px;
+        }
+    }
+
+    @media (max-width: map-get($grid-breakpoints, "xl")) {
+        font-size: 75%;
+    }
+}

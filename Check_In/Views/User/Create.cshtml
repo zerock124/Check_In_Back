@@ -1,0 +1,218 @@
+﻿@{
+    ViewBag.Title = "帳號管理";
+}
+<link href="@Url.Content("~/Content/Modal.css")" rel="stylesheet" />
+
+<style>
+    .circle {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 1px solid rgba(3,3,3,0.2);
+    }
+</style>
+
+<div class="content-wrapper">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">
+                        <i class="nav-icon fas fa-user"></i>
+                        @ViewBag.Title
+                    </h1>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <div id="v_app"></div>
+</div>
+
+<template id="UserCreateManagement">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="card card-default color-palette-box">
+                <div class="card-blue">
+                    <div style="border-top: 5px solid black;border-bottom: 1px solid">
+                        <div class="col">
+                            <div class="info-box-content">
+                                <div class="h5 m-2">
+                                    新增
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center align-content-center" style="height:500px">
+                        <div class="col-auto col-md-6">
+
+                            <div class="row mt-3 justify-content-center">
+                                <div v-if="!image">
+                                    <img :src="DefaultImage" alt="Alternate Tfdsfaext" class="circle" />
+                                </div>
+                                <div v-if="image" class="animated fadeInRightBig">
+                                    <img :src="image" alt="Alternate Text" class="circle" />
+                                </div>
+                            </div>
+
+                            <div class="row mb-3 justify-content-center">
+                                <h6>( 圖片 / JPG 格式 )</h6>
+                            </div>
+
+                            <form action="/" v-on:submit.prevent="SetCreateUser" enctype="multipart/form-data" method="post">
+                                @Html.AntiForgeryToken()
+                                <div class="row mx-2 mb-3">
+                                    <div class="col-4 col-md-3 text-right align-self-center p-0">
+                                        <small class="h6">
+                                            頭像：
+                                        </small>
+                                    </div>
+                                    <div class="col">
+                                        <b-form-file required
+                                                     name="PhotoFile"
+                                                     v-model="PhotoFile"
+                                                     v-on:change="fileSelected"
+                                                     placeholder="上傳圖片"></b-form-file>
+                                    </div>
+                                </div>
+
+                                <div class="row mx-2 mb-3">
+                                    <div class="col-4 col-md-3 text-right align-self-center p-0">
+                                        <small class="h6">
+                                            帳號：
+                                        </small>
+                                    </div>
+
+                                    <div class="col">
+                                        <b-form-input type="text"
+                                                      name="UserName"
+                                                      require
+                                                      v-model="ur_ac"></b-form-input>
+                                    </div>
+                                </div>
+
+                                <div class="row mx-2 mb-3">
+                                    <div class="col-4 col-md-3 text-right align-self-center p-0">
+                                        <small class="h6">
+                                            密碼：
+                                        </small>
+                                    </div>
+                                    <div class="col input-group">
+                                        <b-form-input :type="PasswordTypes"
+                                                      name="Password"
+                                                      require
+                                                      v-model="ur_pw">
+                                        </b-form-input>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text" v-on:click.prevent="ChangePasswordType">
+                                                <i v-if="!ShowPassword" class="fas fa-eye-slash"></i>
+                                                <i v-if="ShowPassword" class="fas fa-eye"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mx-2 mb-3">
+                                    <div class="col-4 col-md-3 text-right align-self-center p-0">
+                                        <small class="h6">
+                                            確認密碼：
+                                        </small>
+                                    </div>
+                                    <div class="col input-group">
+                                        <b-form-input :type="PasswordTypes"
+                                                      name="ConfirmPassword"
+                                                      require
+                                                      v-model="ConfirmPassword">
+                                        </b-form-input>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text" v-on:click.prevent="ChangePasswordType">
+                                                <i v-if="!ShowPassword" class="fas fa-eye-slash"></i>
+                                                <i v-if="ShowPassword" class="fas fa-eye"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-end">
+                                    <div class="col-auto p-3">
+                                        <button class="btn btn-primary" type="submit" :disabled="!VisibleStopAuthority">
+                                            送出
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <b-modal class="modal-content justify-content-center animated zoomIn"
+                 id="UserModel"
+                 hide-header
+                 hide-footer>
+            <div class="modal-body">
+
+                <div v-if="SaveForm == 'Loading'">
+                    <div class="row">
+                        <div class="col text-center">
+                            <div class="circle-loader m-4">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col text-center h4">
+                            新增中...請稍後
+                        </div>
+                    </div>
+                </div>
+
+                <div v-if="SaveForm == 'Success'">
+                    <div class="row">
+                        <div class="col text-center">
+                            <div class="circle-loader m-4 load-complete">
+                                <div class="checkmark draw"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col text-center h4">
+                            {{Message}}
+                        </div>
+                    </div>
+                </div>
+
+                <div v-if="SaveForm == 'Error'">
+                    <div class="row">
+                        <div class="col text-center">
+                            <div class="m-4 load-complete">
+                                <i class="fas fa-times fa-5x text-red"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col text-center h4">
+                            {{Message}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col text-center">
+                        <button type="button" v-if="SaveForm == 'Success'" class="btn btn-success" v-on:click.prevent="CloseModal">確認</button>
+                        <button type="button" v-if="SaveForm == 'Error'" class="btn btn-danger" v-on:click.prevent="HideModal">確認</button>
+                    </div>
+                </div>
+            </div>
+        </b-modal>
+    </div>
+</template>
+
+@section Scripts {
+    <script>
+        requirejs.config({
+            baseUrl: "@Url.Content("~/Scripts/build/view/User/Create")"
+        });
+        require(["index"]);
+    </script>
+
+}
