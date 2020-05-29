@@ -19,10 +19,10 @@
       <publishTime>04/20/2020 17:12:46</publishTime>
     </File>
     <File Include="bin/Check_In.dll">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="bin/Check_In.pdb">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="bin/Check_InDB.dll">
       <publishTime>04/20/2020 18:01:01</publishTime>
@@ -8722,118 +8722,118 @@
       <publishTime>04/20/2020 17:12:43</publishTime>
     </File>
     <File Include="Scripts/build/view/CheckRecord/CheckRecordManagement.js">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/CheckRecord/CheckRecordManagement.js.map">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/CheckRecord/index.js">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/CheckRecord/index.js.map">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/CheckRecord/model.js">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:47</publishTime>
     </File>
     <File Include="Scripts/build/view/CheckRecord/model.js.map">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:47</publishTime>
     </File>
     <File Include="Scripts/build/view/CheckRecord/service.js">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:47</publishTime>
     </File>
     <File Include="Scripts/build/view/CheckRecord/service.js.map">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:47</publishTime>
     </File>
     <File Include="Scripts/build/view/Share/Enums.js">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:47</publishTime>
     </File>
     <File Include="Scripts/build/view/Share/Enums.js.map">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:47</publishTime>
     </File>
     <File Include="Scripts/build/view/Share/FilterFunction.js">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:47</publishTime>
     </File>
     <File Include="Scripts/build/view/Share/FilterFunction.js.map">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:47</publishTime>
     </File>
     <File Include="Scripts/build/view/Share/PublicFunction.js">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:47</publishTime>
     </File>
     <File Include="Scripts/build/view/Share/PublicFunction.js.map">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:47</publishTime>
     </File>
     <File Include="Scripts/build/view/TotalRecord/index.js">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/TotalRecord/index.js.map">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/TotalRecord/model.js">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/TotalRecord/model.js.map">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/TotalRecord/service.js">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/TotalRecord/service.js.map">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/TotalRecord/TotalRecordManagement.js">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/TotalRecord/TotalRecordManagement.js.map">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/User/Create/index.js">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/User/Create/index.js.map">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/User/Create/UserCreateManagement.js">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/User/Create/UserCreateManagement.js.map">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/User/Edit/index.js">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/User/Edit/index.js.map">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/User/Edit/UserEditManagement.js">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/User/Edit/UserEditManagement.js.map">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/User/index.js">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/User/index.js.map">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/User/model.js">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/User/model.js.map">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/User/service.js">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/User/service.js.map">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/User/UserManagement.js">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/build/view/User/UserManagement.js.map">
-      <publishTime>04/20/2020 18:01:07</publishTime>
+      <publishTime>04/22/2020 11:13:48</publishTime>
     </File>
     <File Include="Scripts/jquery.validate/jquery.validate.js">
       <publishTime>04/20/2020 17:12:43</publishTime>

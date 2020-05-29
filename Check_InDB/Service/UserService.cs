@@ -30,7 +30,12 @@ namespace Check_InDB.Service
 
             hasher = new PasswordHasher();
         }
-
+        /// <summary>
+        /// 取得帳號權限管理列表
+        /// </summary>
+        /// <param name="searchModel"></param>
+        /// <param name="pagination"></param>
+        /// <returns></returns>
         public async Task<ResWithPaginationViewModel> GetUserList(UserSearchModel searchModel, PaginationViewModel pagination)
         {
             ResWithPaginationViewModel pageData = new ResWithPaginationViewModel();
@@ -95,7 +100,11 @@ namespace Check_InDB.Service
             pageData.Success = true;
             return await Task.Run(() => pageData);
         }
-
+        /// <summary>
+        /// 新增帳號
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public async Task<VerityResult> CreateUser(CreateUserViewModel model)
         {
             VerityResult result = new VerityResult();
@@ -123,7 +132,11 @@ namespace Check_InDB.Service
 
             return await Task.Run(() => result);
         }
-
+        /// <summary>
+        /// 取得編輯帳號資料
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
         public async Task<UserViewModel> GetEditUserItem(string Id)
         {
             UserViewModel item = new UserViewModel();
@@ -148,7 +161,11 @@ namespace Check_InDB.Service
             return await Task.Run(() => item);
 
         }
-
+        /// <summary>
+        /// 編輯帳號資料
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public async Task<VerityResult> EditUserItem(UserViewModel model)
         {
             VerityResult result = new VerityResult();
@@ -183,7 +200,11 @@ namespace Check_InDB.Service
 
             return await Task.Run(() => result);
         }
-
+        /// <summary>
+        /// 刪除帳號資料
+        /// </summary>
+        /// <param name="ur_id"></param>
+        /// <returns></returns>
         public async Task<VerityResult> DeleteUserItem(string ur_id)
         {
             VerityResult result = new VerityResult();

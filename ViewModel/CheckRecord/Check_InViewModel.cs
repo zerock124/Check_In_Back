@@ -48,7 +48,13 @@ namespace ViewModels.CheckRecord
 
     public class UpdateCheckTimeViewModel
     {
+        /// <summary>
+        /// 上班時間
+        /// </summary>
         public string ci_ut { get; set; }
+        /// <summary>
+        /// 下班時間
+        /// </summary>
         public string ci_dt { get; set; }
     }
 
@@ -74,7 +80,13 @@ namespace ViewModels.CheckRecord
 
     public class SearchTimeModel
     {
+        /// <summary>
+        /// 搜尋起始間
+        /// </summary>
         public DateTime StartDateTime { get; set; }
+        /// <summary>
+        /// 搜尋結束時間
+        /// </summary>
         public DateTime EndDateTime { get; set; }
     }
 

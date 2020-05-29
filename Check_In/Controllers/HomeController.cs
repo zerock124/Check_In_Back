@@ -23,7 +23,10 @@ namespace Check_In.Controllers
         {
             _userService = new UserService();
         }
-
+        /// <summary>
+        /// TypeForm測試WebHook  與 打卡系統無關
+        /// </summary>
+        /// <returns></returns>
         public async Task<JsonResult> CreateUserTest()
         {
             ResponseViewModel res = new ResponseViewModel();

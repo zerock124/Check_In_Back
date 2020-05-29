@@ -28,7 +28,12 @@ namespace Check_InDB.Service
             _user = new GenericRepository<user>(_db);
             _check_in = new GenericRepository<check_in>(_db);
         }
-
+        /// <summary>
+        /// 取得打卡列表
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="pagination"></param>
+        /// <returns></returns>
         public async Task<ResWithPaginationViewModel> GetCheckRecord(SearchCheckModel model, PaginationViewModel pagination)
         {
             ResWithPaginationViewModel pageData = new ResWithPaginationViewModel();
@@ -96,7 +101,10 @@ namespace Check_InDB.Service
             }
             return await Task.Run(() => pageData);
         }
-
+        /// <summary>
+        /// 取得使用者列表
+        /// </summary>
+        /// <returns></returns>
         public async Task<ResponseViewModel> GetUserList()
         {
             ResponseViewModel res = new ResponseViewModel();
@@ -131,7 +139,11 @@ namespace Check_InDB.Service
 
             return await Task.Run(() => res);
         }
-
+        /// <summary>
+        /// 取得打卡時間
+        /// </summary>
+        /// <param name="ci_sn"></param>
+        /// <returns></returns>
         public async Task<ResponseViewModel> GetClick_In(int ci_sn)
         {
             ResponseViewModel res = new ResponseViewModel();
@@ -169,7 +181,11 @@ namespace Check_InDB.Service
 
             return await Task.Run(() => res);
         }
-
+        /// <summary>
+        /// 邊更打卡時間
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public async Task<VerityResult> SubmitClick_In(CheckRecordViewModel model)
         {
             VerityResult res = new VerityResult();
@@ -275,7 +291,7 @@ namespace Check_InDB.Service
         {
             XSSFCellStyle cellStyle = (XSSFCellStyle)wk.CreateCellStyle();
             var TopRow = sht.CreateRow(0);
-            cellStyle = CreateCellData(wk, cellStyle, HorizontalAlignment.Center, VerticalAlignment.Center, 12, FontBoldWeight.Bold);
+            cellStyle = CreateCellData(wk, cellStyle, HorizontalAlignment.Center, VerticalAlignment.Center, 12);
             byte[] colorRgb = { (byte)255, (byte)232, (byte)42 };
 
             var myColor = new XSSFColor(colorRgb);
@@ -297,7 +313,7 @@ namespace Check_InDB.Service
             //---------------------------------------------------------------------- 
             var headerRow = sht.CreateRow(1);
             XSSFCellStyle cell3C = (XSSFCellStyle)wk.CreateCellStyle();
-            cell3C = CreateCellData(wk, cell3C, HorizontalAlignment.Center, VerticalAlignment.Center, 12, FontBoldWeight.Bold);
+            cell3C = CreateCellData(wk, cell3C, HorizontalAlignment.Center, VerticalAlignment.Center, 12);
 
             cell3C.SetFillForegroundColor(myColor);
             cell3C.FillPattern = FillPattern.SolidForeground;
@@ -327,7 +343,7 @@ namespace Check_InDB.Service
             foreach (var exp in xlsList)
             {
                 XSSFCellStyle cellStyle22 = (XSSFCellStyle)wk.CreateCellStyle();
-                cellStyle22 = CreateCellData(wk, cellStyle22, HorizontalAlignment.Center, VerticalAlignment.Center, 10, FontBoldWeight.Bold);
+                cellStyle22 = CreateCellData(wk, cellStyle22, HorizontalAlignment.Center, VerticalAlignment.Center, 10);
 
                 cellStyle22.BorderTop = BorderStyle.Medium;
                 cellStyle22.BorderLeft = BorderStyle.Medium;
@@ -416,13 +432,13 @@ namespace Check_InDB.Service
         /// <param name="wb">Excel工作表</param>
         /// <param name="cs">格式</param>
         ////150108 共用Excel CreateCellStyle
-        public static XSSFCellStyle CreateCellData(XSSFWorkbook wb, XSSFCellStyle cs, HorizontalAlignment ha, VerticalAlignment va, short fontSize, FontBoldWeight fontBold)
+        public static XSSFCellStyle CreateCellData(XSSFWorkbook wb, XSSFCellStyle cs, HorizontalAlignment ha, VerticalAlignment va, short fontSize)
         {
             //set Font
             XSSFFont font = (XSSFFont)wb.CreateFont();
             font.FontHeightInPoints = fontSize;         //fontSize
             font.FontName = "Courier New";       //ftName;
-            font.Boldweight = (short)fontBold;          //(short)FontBoldWeight.NORMAL; //(short)ftBW;
+            font.IsBold = true;         
             cs.SetFont(font);
 
             //set Cell Style

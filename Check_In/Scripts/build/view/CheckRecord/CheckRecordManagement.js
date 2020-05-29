@@ -151,6 +151,8 @@ define(["require", "exports", "vue-property-decorator", "./service", "moment", "
                 }
                 _this.searchmodel.ur_id = '';
                 _this.searchmodel.Query = _this.Query;
+                _this.searchmodel.StartDateTime = moment(_this.StartDateTime).startOf('day').toDate();
+                _this.searchmodel.EndDateTime = moment(_this.EndDateTime).endOf('day').toDate();
                 _this.CurrentPage = 1;
                 _this.GetCheckRecord(_this.searchmodel);
             }

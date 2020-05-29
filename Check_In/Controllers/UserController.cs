@@ -39,7 +39,7 @@ namespace Check_In.Controllers
         }
 
         /// <summary>
-        /// 取得案例圖片
+        /// 取得使用者大頭貼圖片
         /// </summary>
         /// <param name="filesname"></param>
         /// <returns></returns>
@@ -47,14 +47,27 @@ namespace Check_In.Controllers
         public async Task<FileResult> UserPhoto(string filename)
         {
             string path = Server.MapPath(_UserPath) + filename;
-            if (!System.IO.File.Exists(path))
-                throw new HttpException(404, "Some description");
+            if (!System.IO.File.Exists(path)) {
+                    string Nofilename = "NoImage.jpg";
+                    string NoPath = Server.MapPath(_UserPath) + Nofilename;
+                    var NoimgData = await Task.Run(() => System.IO.File.ReadAllBytes(NoPath));
+                    string NomimeType = MimeMapping.GetMimeMapping(Nofilename);
+                    return await Task.Run(() => new FileStreamResult(new System.IO.MemoryStream(NoimgData), NomimeType));
 
-            var imgData = await Task.Run(() => System.IO.File.ReadAllBytes(path));
-            string mimeType = MimeMapping.GetMimeMapping(filename);
-            return await Task.Run(() => new FileStreamResult(new System.IO.MemoryStream(imgData), mimeType));
+            }
+            else
+            {
+                var imgData = await Task.Run(() => System.IO.File.ReadAllBytes(path));
+                string mimeType = MimeMapping.GetMimeMapping(filename);
+                return await Task.Run(() => new FileStreamResult(new System.IO.MemoryStream(imgData), mimeType));
+            }
         }
-
+        /// <summary>
+        /// 取得使用者列表
+        /// </summary>
+        /// <param name="searchModel"></param>
+        /// <param name="pagination"></param>
+        /// <returns></returns>
         public async Task<JsonResult> GetUserList(UserSearchModel searchModel, PaginationViewModel pagination)
         {
             ResWithPaginationViewModel res = new ResWithPaginationViewModel();
@@ -80,7 +93,11 @@ namespace Check_In.Controllers
             res.ResponseTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
             return Json(res, JsonRequestBehavior.AllowGet);
         }
-
+        /// <summary>
+        /// 新增使用者
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public async Task<JsonResult> CreateUser(CreateUserViewModel model)
         {
             ResponseViewModel res = new ResponseViewModel();
@@ -113,7 +130,11 @@ namespace Check_In.Controllers
             res.ResponseTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
             return Json(res, JsonRequestBehavior.DenyGet);
         }
-
+        /// <summary>
+        /// 取得使用者資訊
+        /// </summary>
+        /// <param name="ur_id"></param>
+        /// <returns></returns>
         public async Task<JsonResult> GetEditUserItem(string ur_id)
         {
             ResponseViewModel res = new ResponseViewModel();
@@ -136,7 +157,11 @@ namespace Check_In.Controllers
             res.ResponseTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
             return Json(res, JsonRequestBehavior.AllowGet);
         }
-
+        /// <summary>
+        /// 編輯使用者資訊
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public async Task<JsonResult> EditUserItem(UserViewModel model)
         {
             ResponseViewModel res = new ResponseViewModel();
@@ -169,7 +194,12 @@ namespace Check_In.Controllers
             res.ResponseTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
             return Json(res, JsonRequestBehavior.DenyGet);
         }
-
+        /// <summary>
+        /// 刪除使用者
+        /// </summary>
+        /// <param name="ur_id"></param>
+        /// <param name="ur_im"></param>
+        /// <returns></returns>
         public async Task<JsonResult> DeleteUserItem(string ur_id, string ur_im)
         {
             ResponseViewModel res = new ResponseViewModel();

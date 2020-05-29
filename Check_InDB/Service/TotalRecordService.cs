@@ -26,7 +26,11 @@ namespace Check_InDB.Service
             _check_all = new GenericRepository<check_all>(_db);
             _check_in = new GenericRepository<check_in>(_db);
         }
-
+        /// <summary>
+        /// 取得彙總紀錄列表
+        /// </summary>
+        /// <param name="searchModel"></param>
+        /// <returns></returns>
         public async Task<ResponseViewModel> GetTotalRecordList(SearchModel searchModel)
         {
             ResponseViewModel res = new ResWithPaginationViewModel();
@@ -76,7 +80,11 @@ namespace Check_InDB.Service
 
             return await Task.Run(() => res);
         }
-
+        /// <summary>
+        /// 更新彙整記錄
+        /// </summary>
+        /// <param name="searchModel"></param>
+        /// <returns></returns>
         public async Task<VerityResult> CheckTotalRecord(SearchTime searchModel)
         {
             VerityResult res = new VerityResult();
@@ -178,7 +186,10 @@ namespace Check_InDB.Service
 
             return await Task.Run(() => res);
         }
-
+        /// <summary>
+        /// 取得日期選項
+        /// </summary>
+        /// <returns></returns>
         public async Task<ResponseViewModel> GetOptions()
         {
             ResponseViewModel res = new ResponseViewModel();

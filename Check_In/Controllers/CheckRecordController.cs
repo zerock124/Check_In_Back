@@ -31,7 +31,12 @@ namespace Check_In.Controllers
         {
             return View();
         }
-
+        /// <summary>
+        /// 取得打卡紀錄
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="pagination"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<JsonResult> GetCheckRecord(SearchCheckModel model, PaginationViewModel pagination)
         {
@@ -55,7 +60,10 @@ namespace Check_In.Controllers
             res.ResponseTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
             return Json(res, JsonRequestBehavior.DenyGet);
         }
-
+        /// <summary>
+        /// 取得使用者列表
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<JsonResult> GetUserList()
         {
@@ -79,7 +87,11 @@ namespace Check_In.Controllers
             res.ResponseTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
             return Json(res, JsonRequestBehavior.AllowGet);
         }
-
+        /// <summary>
+        /// 取得打卡紀錄的時間
+        /// </summary>
+        /// <param name="ci_sn"></param>
+        /// <returns></returns>
         public async Task<JsonResult> GetClick_In(int ci_sn)
         {
             ResponseViewModel res = new ResponseViewModel();
@@ -102,7 +114,12 @@ namespace Check_In.Controllers
             res.ResponseTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
             return Json(res, JsonRequestBehavior.AllowGet);
         }
-
+        /// <summary>
+        /// 編輯打卡紀錄的時間
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="time"></param>
+        /// <returns></returns>
         public async Task<JsonResult> SubmitClick_In(CheckRecordViewModel model, UpdateCheckTimeViewModel time)
         {
             ResponseViewModel res = new ResponseViewModel();

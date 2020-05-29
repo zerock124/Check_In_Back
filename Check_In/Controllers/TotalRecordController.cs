@@ -25,7 +25,11 @@ namespace Check_In.Controllers
         {
             return View();
         }
-
+        /// <summary>
+        /// 取得彙總紀錄列表
+        /// </summary>
+        /// <param name="searchModel"></param>
+        /// <returns></returns>
         public async Task<JsonResult> GetTotalRecord(SearchModel searchModel)
         {
             ResWithPaginationViewModel res = new ResWithPaginationViewModel();
