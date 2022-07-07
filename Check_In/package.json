@@ -6,7 +6,7 @@
   "dependencies": {
     "animate.css": "^3.7.2",
     "bootstrap-vue": "^2.9.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "requirejs": "^2.3.6",
     "vue": "^2.6.11",
     "vue-property-decorator": "^8.4.1"
